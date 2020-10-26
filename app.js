@@ -6,8 +6,10 @@ require('dotenv').config();
 const app = express();
 
 app.get("/", (req,res) => {
+    const query = 'Manchester'
+    const unit = 'imperial'
     const apiKey = process.env.API_KEY
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=Manchester&units=imperial&appid=${apiKey}`
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&units=${unit}&appid=${apiKey}`
     https.get(url, (response)=>{
         console.log(response.statusCode);
         response.on('data', data =>{
